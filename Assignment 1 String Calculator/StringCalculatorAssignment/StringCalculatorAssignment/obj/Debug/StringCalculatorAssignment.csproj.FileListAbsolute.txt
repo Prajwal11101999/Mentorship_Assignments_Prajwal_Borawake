@@ -1,0 +1,7 @@
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\bin\Debug\StringCalculatorAssignment.exe.config
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\bin\Debug\StringCalculatorAssignment.exe
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\bin\Debug\StringCalculatorAssignment.pdb
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\obj\Debug\StringCalculatorAssignment.csproj.AssemblyReference.cache
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\obj\Debug\StringCalculatorAssignment.csproj.CoreCompileInputs.cache
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\obj\Debug\StringCalculatorAssignment.exe
+D:\Zensar_Mentorship\Assignment 1 String Calculator\StringCalculatorAssignment\StringCalculatorAssignment\obj\Debug\StringCalculatorAssignment.pdb
