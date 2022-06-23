@@ -1,0 +1,90 @@
+﻿@model WebApplication2.Models.ProductTB
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Save", "ProductMVC", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Product_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category_Id, "Category_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    WebApplication2.Models.ProductDetails1Entities db = new WebApplication2.Models.ProductDetails1Entities();
+                    List<WebApplication2.Models.CategoryTB> ListCategory = db.CategoryTBs.ToList();
+                    <select name="Category_Id" class="form-control">
+                        @{
+                            <option value="" disabled hidden selected>Select Category</option>
+                            foreach (WebApplication2.Models.CategoryTB s in ListCategory)
+                            {
+                                <option value="@s.Category_ID">@s.Category_Name</option>
+                            }
+                        }
+                    </select>
+                }
+                @Html.ValidationMessageFor(model => model.Category_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Unit_Id, "Unit_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    WebApplication2.Models.ProductDetails1Entities bd = new WebApplication2.Models.ProductDetails1Entities();
+                    List<WebApplication2.Models.UnitTB> ListUnit = bd.UnitTBs.ToList();
+                    <select name="Unit_ID" class="form-control">
+                        @{
+                            <option name="" disabled hidden selected>Select Unit </option>
+                            foreach (WebApplication2.Models.UnitTB s in ListUnit)
+                            {
+                                <option value="@s.Unit_ID">@s.Unit_Name</option>
+                            }
+                        }
+                    </select>
+                }
+                @Html.ValidationMessageFor(model => model.Unit_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
