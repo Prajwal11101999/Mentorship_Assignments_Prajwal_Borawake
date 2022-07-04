@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlackJackDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CardPack">
+    <Key>
+      <PropertyRef Name="Card_No" />
+    </Key>
+    <Property Name="Card_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Card_Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Card_Value" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionTable">
+    <Key>
+      <PropertyRef Name="Session_No" />
+    </Key>
+    <Property Name="Session_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlayerScore" Type="Int32" Nullable="false" />
+    <Property Name="DealerScore" Type="Int32" Nullable="false" />
+    <Property Name="GameResult" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BlackJackDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CardPacks" EntityType="Self.CardPack" />
+    <EntitySet Name="SessionTables" EntityType="Self.SessionTable" />
+  </EntityContainer>
+</Schema>

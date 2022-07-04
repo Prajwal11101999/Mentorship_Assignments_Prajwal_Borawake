@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlackJackDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CardPack">
+    <Key>
+      <PropertyRef Name="Card_No" />
+    </Key>
+    <Property Name="Card_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Card_Name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Card_Value" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionTable">
+    <Key>
+      <PropertyRef Name="Session_No" />
+    </Key>
+    <Property Name="Session_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlayerScore" Type="int" Nullable="false" />
+    <Property Name="DealerScore" Type="int" Nullable="false" />
+    <Property Name="GameResult" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BlackJackDatabaseModelStoreContainer">
+    <EntitySet Name="CardPack" EntityType="Self.CardPack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SessionTable" EntityType="Self.SessionTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

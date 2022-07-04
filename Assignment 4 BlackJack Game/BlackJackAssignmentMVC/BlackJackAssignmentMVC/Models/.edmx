@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BlackJackDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CardPack">
+          <Key>
+            <PropertyRef Name="Card_No" />
+          </Key>
+          <Property Name="Card_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Card_Name" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Card_Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SessionTable">
+          <Key>
+            <PropertyRef Name="Session_No" />
+          </Key>
+          <Property Name="Session_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerScore" Type="int" Nullable="false" />
+          <Property Name="DealerScore" Type="int" Nullable="false" />
+          <Property Name="GameResult" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BlackJackDatabaseModelStoreContainer">
+          <EntitySet Name="CardPack" EntityType="Self.CardPack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SessionTable" EntityType="Self.SessionTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlackJackDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CardPack">
+          <Key>
+            <PropertyRef Name="Card_No" />
+          </Key>
+          <Property Name="Card_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Card_Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Card_Value" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SessionTable">
+          <Key>
+            <PropertyRef Name="Session_No" />
+          </Key>
+          <Property Name="Session_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerScore" Type="Int32" Nullable="false" />
+          <Property Name="DealerScore" Type="Int32" Nullable="false" />
+          <Property Name="GameResult" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BlackJackDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CardPacks" EntityType="Self.CardPack" />
+          <EntitySet Name="SessionTables" EntityType="Self.SessionTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlackJackDatabaseModelStoreContainer" CdmEntityContainer="BlackJackDatabaseEntities">
+          <EntitySetMapping Name="CardPacks">
+            <EntityTypeMapping TypeName="BlackJackDatabaseModel.CardPack">
+              <MappingFragment StoreEntitySet="CardPack">
+                <ScalarProperty Name="Card_No" ColumnName="Card_No" />
+                <ScalarProperty Name="Card_Name" ColumnName="Card_Name" />
+                <ScalarProperty Name="Card_Value" ColumnName="Card_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionTables">
+            <EntityTypeMapping TypeName="BlackJackDatabaseModel.SessionTable">
+              <MappingFragment StoreEntitySet="SessionTable">
+                <ScalarProperty Name="Session_No" ColumnName="Session_No" />
+                <ScalarProperty Name="PlayerScore" ColumnName="PlayerScore" />
+                <ScalarProperty Name="DealerScore" ColumnName="DealerScore" />
+                <ScalarProperty Name="GameResult" ColumnName="GameResult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

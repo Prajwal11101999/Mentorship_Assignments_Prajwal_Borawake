@@ -1,0 +1,120 @@
+﻿@model BlackJackAssignmentMVC.Models.CardsDealt
+
+@{
+    ViewBag.Title = "GameStart";
+}
+<center>
+    <h1><b><u>BlackJack Game</u></b></h1>
+    <br /><br />
+</center>
+<button type="button" style="font-size:larger; margin-right:60px" value="Hit" class="body-content" onclick="location.href ='@Url.Action("Hit", "GamePlay")'"><b>Hit</b></button>
+<button type="button" style="font-size:larger; margin-left:60px" value="Stand" onclick="location.href ='@Url.Action("Stand", "GamePlay")'"><b>Stand</b></button>
+
+<br />
+<br />
+
+<table border="4">
+    <style>
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid;
+        }
+
+        th {
+            font-size: larger;
+            color: black;
+        }
+    </style>
+    <tr>
+        <th><b>PlayerCards</b></th>
+        <th><b>DealerCards</b></th>
+    </tr>
+    <tr>
+        <td>
+            @{
+                <b>@TempData.Peek("PlayerCard1")</b>
+                TempData.Keep("PlayerCard1");
+            }
+        </td>
+        <td>
+            @{
+                <b>@TempData.Peek("DealerCard")</b>
+                TempData.Keep("DealerCard");
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @{
+                <b>@TempData.Peek("PlayerCard2")</b>
+                TempData.Keep("PlayerCard2");
+            }
+        </td>
+        <td>
+            @{
+                <b>@TempData.Peek("DealerhitCard1")</b>
+                TempData.Keep("DealerhitCard1");
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @{
+                <b>@TempData.Peek("PlayerHitCard1")</b>
+                TempData.Keep("PlayerHitCard1");
+            }
+        </td>
+        <td>
+            @{
+                <b>@TempData.Peek("DealerhitCard2")</b>
+                TempData.Keep("DealerhitCard2");
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @{
+                <b>@TempData.Peek("PlayerHitCard2")</b>
+                TempData.Keep("PlayerHitCard2");
+            }
+        </td>
+        <td>
+            @{
+                <b>@TempData.Peek("DealerHitCard3")</b>
+                TempData.Keep("DealerHitCard3");
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @{
+                <b>@TempData.Peek("PlayerHitCard3")</b>
+                TempData.Keep("PlayerHitCard3");
+            }
+        </td>
+        <td>
+            @{
+                <b>@TempData.Peek("DealerHitCard4")</b>
+                TempData.Keep("DealerHitCard4");
+            }
+        </td>
+    </tr>
+</table>
+
+<br />
+<h3>
+    <label for="PlayerScore">Player Score:@BlackJackAssignmentMVC.Models.GameScore.Playerscore</label>
+    <br />
+    <label for="DealerScore">Dealer Score:@BlackJackAssignmentMVC.Models.GameScore.Dealerscore</label>
+    <br />
+    <label for="Game Status">Game Status:@ViewData["GameStatus"]</label>
+</h3>
+<br />
+<button type="button" style="font-size:larger;" value="Report" onclick="location.href ='@Url.Action("SessionReport","GamePlay")'"><b>View Session Report</b></button>
+<button type="button" style="font-size: larger; margin-left:20px" value="Restart" onclick="location.href ='@Url.Action("PlayAgain","GamePlay")'"><b>Play Again</b></button>
+<button type="button" style="font-size: larger; margin-left:20px" value="save" onclick="location.href ='@Url.Action("GameSave","GamePlay")'"><b>Save</b></button>
+
+
+
+

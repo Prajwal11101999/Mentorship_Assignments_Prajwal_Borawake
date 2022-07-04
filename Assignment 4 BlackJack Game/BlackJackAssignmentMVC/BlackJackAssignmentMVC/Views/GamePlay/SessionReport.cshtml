@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BlackJackAssignmentMVC.Models.SessionTable>
+
+@{
+    ViewBag.Title = "SessionReport";
+}
+@*
+<h2>SessionReport</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<center>
+<h1><b> Session Report </b></h1>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Session_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameResult)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Session_No)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlayerScore)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DealerScore)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameResult)
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Session_No }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Session_No }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Session_No })
+        </td>*@
+</tr>
+}
+
+</table>
+    </center>
